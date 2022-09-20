@@ -1,14 +1,11 @@
-FROM ubuntu:20.04
-
-RUN apt-get update -y
-RUN apt-get install -y python3-pip
+FROM python:3.7-alpine
 
 # We copy just the requirements.txt first to leverage Docker cache
 COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
-
-RUN pip3 install -r requirements.txt
+ 
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
