@@ -20,3 +20,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install pylint
+      - name: Run linter
+        run: pylint app.py
