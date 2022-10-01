@@ -11,15 +11,18 @@ on:
 
 jobs:
   compile:
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10']
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
       - name: List of repo
         run: ls ${{ github.workspace }}
-      - name: Setup python version 3
+      - name: Setup python version ${{ python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: ${{ python-version }}
       - name: Install dependencies
         run: |
           pip install -r requirements.txt

@@ -1,6 +1,8 @@
 name: Publish image to Docker Hub
 
 on:
+  schedule:
+    - cron: '30 5,17 * * *'
   workflow_dispatch:
     inputs:
       tag:
@@ -11,12 +13,12 @@ on:
       run-test:
         description: 'Run test'
         required: true
-        default: false
+        default: true
         type: boolean
       run-linter:
         description: 'Run linter'
         required: true
-        default: false
+        default: true
         type: boolean
 
 jobs:
