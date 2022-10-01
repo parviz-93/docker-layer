@@ -3,7 +3,7 @@ name: hello-world
 # on: push
 on:
   schedule:
-    - cron * 1 * * * *
+    - cron:  '30 5,17 * * *'
   push:
     branches:
       - 'main'
