@@ -1,0 +1,33 @@
+name: Basic Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        default: 'World'
+        required: true
+        type: string
+      city:
+        description: "Favorite city"
+        required: true
+        default: "Tupelo"
+        type: choice
+        options:
+        - New York
+        - Seattle
+        - Tupelo
+      fav-color-blue:
+        description: "Is your favorite color blue"
+        required: true
+        type: boolean
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send greeting
+      run: |
+        echo "Hello ${{ github.event.inputs.name }}"
+        echo "Your favorite city is ${{ github.event.inputs.city }}"
+        echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue }}"
