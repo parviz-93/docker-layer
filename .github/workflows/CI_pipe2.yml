@@ -7,9 +7,16 @@ on:
       - 'main'
 
 jobs:
-  compile:   
+  compile:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
       - name: List of repo
         run: ls ${{ github.workspace }}
+      - name: Setup python version 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
