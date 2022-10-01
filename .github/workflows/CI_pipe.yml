@@ -34,7 +34,7 @@ jobs:
           pip install pytest
       - name: run linter
         run: |
-          pylint $(git ls-files '*.py')
+          pylint app.py
       - name: run test
         run: |
           pytest
