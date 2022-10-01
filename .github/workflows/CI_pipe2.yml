@@ -1,0 +1,15 @@
+name: CI pipe run and build
+
+#.github/workflows/CI_pipe2.yml
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  compile:   
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: List of repo
+        run: ls ${{ github.workspace }}
