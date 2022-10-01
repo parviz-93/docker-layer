@@ -8,8 +8,24 @@ on:
         required: true
         default: latest
         type: string
+      run-test:
+        description: 'Run test'
+        required: true
+        default: false
+        type: boolean
+      run-linter:
+        description: 'Run linter'
+        required: true
+        default: false
+        type: boolean
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.tag }} == true
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
   publish:
     runs-on: ubuntu-latest
     steps:
