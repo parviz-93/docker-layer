@@ -17,6 +17,7 @@ pipeline {
             steps {
                 sh 'python -m venv ${VENV_PATH}'
                 sh '. ${VENV_PATH}/bin/activate'
+                sh 'python -m pip install --upgrade pip'
                 sh 'pip install -r requirements.txt'
                 sh 'pip install pylint'
                 sh 'pip install pytes'
