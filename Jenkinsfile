@@ -4,9 +4,9 @@ pipeline {
     }
 
     stages {
-        stage('Git Log') {
+        stage('Workdit') {
             steps {
-                git status
+                sh 'ls'
             }
         }
         stage('Build') {
