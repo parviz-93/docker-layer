@@ -4,7 +4,7 @@ pipeline {
     }
 
      environment {
-       VENV_PATH="/opt/venv"
+       VENV_PATH="~/venv"
     }
 
     stages {
