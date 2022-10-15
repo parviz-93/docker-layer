@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'python -m venv ${VENV_PATH}'
-                sh '. /opt/venv/bin/activate'
+                sh '. ${VENV_PATH}/bin/activate'
                 sh 'pip install -r requirements.txt'
                 sh 'pip install pylint'
                 sh 'pip install pytes'
