@@ -4,15 +4,22 @@ pipeline {
     }
 
     stages {
-        stage('Hello') {
+        stage('Git Log') {
             steps {
-                echo 'Hello World'
+                git status
             }
         }
         stage('Build') {
             steps {
-                echo 'Hello World'
-                sh 'uname -a'
+                sh 'python -m pip install --upgrade pip'
+                sh 'pip install -r requirements.txt'
+                sh 'pip install pylint'
+                sh 'pip install pytes'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'pytest'
             }
         }
     }
