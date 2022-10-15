@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'python:3.9.15-slim' }
+        docker { image 'python:alpine3.16' }
     }
 
      environment {
@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('Workdit') {
+        stage('Workdir') {
             steps {
                 sh 'ls'
             }
